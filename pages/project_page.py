@@ -1,3 +1,5 @@
+import time
+from selene.api import browser
 import allure
 from selene.common.data_structures.persistent import field
 
@@ -12,6 +14,7 @@ class PageProject(BasePage):
                 lokator="//input[@name='title' and @placeholder='Введите название']",
                 text=username)
             self.click_on("//button[@id='button-submit' and text()='Создать']")
+            time.sleep(1)
 
     def check_create_project(self, name):
         self.check_text(name)
@@ -66,7 +69,8 @@ class PageProject(BasePage):
             self.type_text_in_to_input_field(
                 lokator='//*[@id="root-main"]/div/div[1]/div/div/div[1]/div[2]/button[2]',
                 text=name_1)
-            self.click_on_text("Создать")
+
+
 
     def delete_custom_fields(self, username="тест", name="55"):
         with allure.step(f"удаление кастомного поля"):
@@ -150,7 +154,8 @@ class PageProject(BasePage):
             self.type_text_in_to_input_field(
                 lokator='textarea[placeholder="Задайте нам вопрос, чтобы начать"]',
                 text=field)
-            self.click_on("input[type='file']").send_keys("C:/Users\huawei\Desktop\i.webp")
+            file_input = browser.element('input[type="file"]')
+            file_input.send_keys("C:/Users\huawei\Desktop\i.webp")
             self.click_on("(//button[@type='button' and contains(@class, 'Button_style_accent')])[2]")
 
 

@@ -30,7 +30,7 @@ class PageTask(BasePage):
     def add_file(self):
         with allure.step(f"добавление вложения"):
             file_input = browser.element('input[type="file"]')
-            file_input.send_keys(r"C:\Users\huawei\Desktop\i.webp")
+            file_input.send_keys("C:/Users\huawei\Desktop\i.webp")
             time.sleep(4)
 
     def arxiv_task(self):
